@@ -1,0 +1,18 @@
+# Data
+month <- c("Jan", "Feb", "Mar", "Apr", "May",
+           "Jun", "Jul", "Aug", "Sep", "Oct")
+
+advertising <- c(5, 8, 10, 12, 15, 18, 20, 22, 25, 28)
+
+sales <- c(42, 55, 63, 70, 82, 91, 98, 110, 120, 132)
+
+# Create Scatter Plot
+plot(advertising, sales,
+     main = "Advertising Cost vs Sales Revenue",
+     xlab = "Advertising Cost (₹ Lakhs)",
+     ylab = "Sales Revenue (₹ Lakhs)",
+     pch = 19,
+     col = "blue")
+
+# Add trend line
+abline(lm(sales ~ advertising), col = "red", lwd = 2)
