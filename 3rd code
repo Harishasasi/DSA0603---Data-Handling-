@@ -1,0 +1,19 @@
+# Marketing Channels
+channel <- c("Social Media", "Television", "Print Media",
+             "Radio", "Email Marketing",
+             "Influencer Marketing", "SEO", "Events")
+
+budget <- c(28, 22, 10, 8, 12, 9, 6, 5)
+
+# Create Pie Chart
+pie(budget,
+    labels = paste(channel, budget, "%"),
+    main = "Marketing Budget Allocation",
+    col = rainbow(length(budget)))
+
+# Find the highest investment
+highest <- channel[which.max(budget)]
+highest_budget <- max(budget)
+
+cat("Highest Investment Channel:", highest, "\n")
+cat("Budget Allocation:", highest_budget, "%\n")
