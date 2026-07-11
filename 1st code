@@ -1,0 +1,28 @@
+# Create the dataset
+product <- c("Groceries", "Dairy", "Fruits", "Vegetables",
+             "Bakery", "Beverages", "Snacks",
+             "Personal Care", "Household Items", "Frozen Foods")
+
+sales <- c(120, 95, 80, 75, 68, 90, 110, 55, 70, 60)
+
+data <- data.frame(product, sales)
+
+# Create Bar Chart
+barplot(data$sales,
+        names.arg = data$product,
+        col = "skyblue",
+        main = "Monthly Sales Revenue by Product Category - June 2026",
+        xlab = "Product Category",
+        ylab = "Sales (₹ Lakhs)",
+        las = 2)
+
+# Find highest and lowest selling categories
+highest <- data[which.max(data$sales), ]
+lowest <- data[which.min(data$sales), ]
+
+# Display results
+cat("Highest Selling Category:\n")
+print(highest)
+
+cat("\nLowest Selling Category:\n")
+print(lowest)
