@@ -1,0 +1,43 @@
+# Install package (run once)
+install.packages("ggplot2")
+
+# Load library
+library(ggplot2)
+
+# Create dataset
+city <- data.frame(
+  City = c("Chennai","Bangalore","Hyderabad","Mumbai","Delhi",
+           "Pune","Kolkata","Ahmedabad","Jaipur","Kochi"),
+  Latitude = c(13.08,12.97,17.38,19.07,28.61,18.52,22.57,23.02,26.91,9.93),
+  Longitude = c(80.27,77.59,78.48,72.87,77.21,73.85,88.36,72.57,75.79,76.26),
+  Population = c(11,13,10,20,32,7,15,8,4,2)
+)
+
+# Q1 Scatter Map
+ggplot(city, aes(x=Longitude, y=Latitude)) +
+  geom_point(size=3, color="blue") +
+  labs(title="Scatter Map of Cities")
+
+# Q2 Bubble Map
+ggplot(city, aes(x=Longitude, y=Latitude, size=Population)) +
+  geom_point(alpha=0.7, color="red") +
+  labs(title="Bubble Map")
+
+# Q3 City Labels
+ggplot(city, aes(x=Longitude, y=Latitude, size=Population)) +
+  geom_point(color="blue") +
+  geom_text(aes(label=City), vjust=-1) +
+  labs(title="Cities with Labels")
+
+# Q4 Different Colors by Population
+ggplot(city,
+       aes(x=Longitude, y=Latitude,
+           size=Population,
+           color=Population)) +
+  geom_point() +
+  geom_text(aes(label=City), vjust=-1) +
+  scale_color_gradient(low="green", high="red") +
+  labs(title="Population Wise Color")
+
+# Q5 Highest Population
+city[which.max(city$Population), ]
