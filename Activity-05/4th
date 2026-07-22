@@ -1,0 +1,41 @@
+# Dataset
+student <- data.frame(
+  Student=c("A","B","C","D","E","F","G","H","I","J"),
+  Marks=c(60,68,74,79,82,85,88,91,94,97),
+  Attendance=c(75,80,84,88,90,92,94,95,97,99),
+  StudyHours=c(2,3,4,5,5,6,6,7,8,9),
+  Projects=c(1,2,2,3,3,4,4,5,5,6)
+)
+
+# Q1 Bubble Plot
+symbols(student$Marks,
+        student$Attendance,
+        circles=student$StudyHours,
+        inches=0.3,
+        bg="skyblue",
+        xlab="Marks",
+        ylab="Attendance",
+        main="Bubble Plot")
+
+text(student$Marks,
+     student$Attendance,
+     labels=student$Student,
+     pos=3)
+
+# Q2 Scatter Plot Matrix
+pairs(student[,2:5],
+      main="Scatter Plot Matrix",
+      col="blue")
+
+# Q3 Correlation
+cor(student[,c("Marks","Attendance","StudyHours")])
+
+# Q4 Highest Marks Student
+student[which.max(student$Marks), ]
+
+# Q5 Heatmap
+heatmap(cor(student[,2:5]),
+        Rowv=NA,
+        Colv=NA,
+        col=heat.colors(20),
+        scale="none")
