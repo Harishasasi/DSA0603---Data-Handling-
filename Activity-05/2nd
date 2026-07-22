@@ -1,0 +1,40 @@
+# Install package
+install.packages("igraph")
+
+# Load library
+library(igraph)
+
+# Dataset
+edges <- data.frame(
+  From=c("A","A","B","C","C","D","E","F","G","H"),
+  To=c("B","C","D","D","E","E","F","G","H","A")
+)
+
+# Q1 Create Network Graph
+g <- graph_from_data_frame(edges, directed=FALSE)
+
+plot(g,
+     vertex.color="skyblue",
+     vertex.size=30,
+     vertex.label.cex=1.2,
+     main="Network Graph")
+
+# Q2 Node Labels and Colors
+plot(g,
+     vertex.color="orange",
+     vertex.label.color="black",
+     vertex.size=30)
+
+# Q3 Degree of Each Node
+deg <- degree(g)
+print(deg)
+
+# Q4 Highest Connections
+names(which.max(deg))
+
+# Q5 Circular Layout
+plot(g,
+     layout=layout_in_circle(g),
+     vertex.color="lightgreen",
+     vertex.size=30,
+     main="Circular Network")
