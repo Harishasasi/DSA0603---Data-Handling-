@@ -1,0 +1,30 @@
+# Daily Steps
+steps <- c(4200, 5000, 5600, 6100, 6800,
+           7200, 8100, 9200, 10400, 12000)
+
+# Create ECDF
+ecdf_steps <- ecdf(steps)
+
+# Display cumulative probabilities
+sorted_steps <- sort(steps)
+cum_prob <- ecdf_steps(sorted_steps)
+
+data.frame(
+  Steps = sorted_steps,
+  Cumulative_Probability = cum_prob
+)
+
+# ECDF Plot
+plot(ecdf_steps,
+     main = "ECDF of Daily Steps",
+     xlab = "Daily Steps",
+     ylab = "Cumulative Probability",
+     verticals = TRUE,
+     do.points = TRUE,
+     col = "darkgreen",
+     lwd = 2)
+
+grid()
+
+# Proportion walking 8000 steps or fewer
+ecdf_steps(8000)
