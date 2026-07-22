@@ -1,0 +1,24 @@
+# Dataset
+sales <- c(120,135,150,170,190,220,210,230,250,270,290,320)
+months <- c("Jan","Feb","Mar","Apr","May","Jun",
+            "Jul","Aug","Sep","Oct","Nov","Dec")
+
+# Q1 Line Chart
+plot(sales,
+     type="l",
+     xaxt="n",
+     xlab="Month",
+     ylab="Sales (Lakhs)",
+     main="Monthly Sales")
+
+# Q2 Custom Month Names
+axis(1, at=1:12, labels=months)
+
+# Q3 Highlight Data Points
+points(sales, pch=19, col="red")
+
+# Q4 Grid Lines
+grid()
+
+# Q5 Maximum Sales Month
+months[which.max(sales)]
